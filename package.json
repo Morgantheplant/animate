@@ -26,7 +26,7 @@
     "express-handlebars": "^3.0.0",
     "http": "0.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "less": "^2.6.1",
+    "less": "3.8.0",
     "less-plugin-clean-css": "^1.5.1",
     "matter": "^0.2.0",
     "matter-js": "^0.10.0",
