@@ -1,17 +1,9 @@
-import React from "react";
-import { render } from "react-dom";
-import { Router, Route, browserHistory } from "react-router";
-import { Provider } from "react-redux";
-import MapContainer from "./containers/MapContainer.jsx";
-import store from "./reducers/rootStore";
+import { MainAnimation } from "./animation";
+import AnimationLoop from "simple_animation_loop";
 
-window.initReact = function initReact() {
-  return render((
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route path="/" component={MapContainer} />
-        <Route path="/:surfspot" component={MapContainer} />
-      </Router>
-    </Provider>
-  ), document.getElementById("react-container"));
-};
+setTimeout(() => {
+  new MainAnimation({
+    el: document.getElementById("world"),
+    animationLoop: new AnimationLoop()
+  }).init(new Array(5));
+});

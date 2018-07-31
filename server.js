@@ -1,16 +1,16 @@
-var express = require('express');
+var express = require("express");
 var app = express();
-var http = require('http').Server(app);
+var http = require("http").Server(app);
 var port = process.env.PORT || 5000;
-var exphbs = require('express-handlebars');
-var routes = require('./routes');
+var path = require("path");
 
-app.engine('.hbs', exphbs({ extname: '.hbs'}));
-app.set('view engine', '.hbs');
-app.use('/static', express.static('public'));
-app.use('/', routes);
+app
+  .use("/static", express.static("public"))
+  .use("/images", express.static("public/images"))
+  .use("/", function(req, res) {
+    res.sendFile(path.join(__dirname + "/public/index.html"));
+  });
 
-http.listen(port, function(){
-    console.log('Listening on port '+ port);
+http.listen(port, function() {
+  console.log("Listening on port " + port);
 });
-
